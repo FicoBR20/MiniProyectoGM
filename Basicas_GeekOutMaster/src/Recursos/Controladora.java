@@ -17,26 +17,24 @@ public class Controladora {
 
     public Controladora(){
 
-        frame1 = new Frame_Gira_El_Dado();
-        basico1 = new BasicasGeek();
-
-
     }
-
-    public static void frameInicial(){
-        String aviso = "vamos llegando";
-
-        System.out.print(aviso);
-        JOptionPane.showMessageDialog(null, "esta bueno");
-    }
-
 
 
 
 
     public static void main(String[] args) {
 
-        frameInicial();
+
+        Frame_Gira_El_Dado miFrame = new Frame_Gira_El_Dado();
+        BasicasGeek miBasica = new BasicasGeek();
+
+        /*
+        Se logra que el buttom cambie de imagen
+        realizando el llamado desde la clase Controladora
+        que invoca los metodos apropiados en las clases involuctradas.
+         */
+
+        miFrame.asignarCara(miBasica.lanzarUnDado());
 
 
         EventQueue.invokeLater(new Runnable() {

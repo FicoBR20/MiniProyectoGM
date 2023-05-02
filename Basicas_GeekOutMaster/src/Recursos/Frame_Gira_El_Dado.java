@@ -34,12 +34,11 @@ public class Frame_Gira_El_Dado extends JFrame {
     // Method INITGUI -> ASSIGN INITIALS VALUES TO ALL ATTRIBUTES, RUN INTO CONSTRUCTOR
     private void initGUI() {
 
-        ImageIcon caraPuntuadora = new ImageIcon(getClass().getResource("/Images/cara42.png"));
+        ImageIcon caraPuntuadora = new ImageIcon(getClass().getResource("/Images/5-cara42.png"));
 
         giraDado = new GiraDado();
 
         jbdadp1 = new JButton();
-        jbdadp1.setIcon(caraPuntuadora);
 
 //        jldado2 = new JLabel();
 //
@@ -50,7 +49,7 @@ public class Frame_Gira_El_Dado extends JFrame {
         container1.setLayout(new BorderLayout());
 
 
-        container1.setBorder(BorderFactory.createTitledBorder(null, "Dado cambia cara opuesta.",
+        container1.setBorder(BorderFactory.createTitledBorder(null, "Cara inicial del dado",
                 TitledBorder.CENTER, TitledBorder.DEFAULT_JUSTIFICATION,
                 new Font(Font.MONOSPACED, Font.BOLD, 12), Color.BLACK));
 
@@ -72,11 +71,59 @@ public class Frame_Gira_El_Dado extends JFrame {
 
         this.add(container1);
 
-       // pack();
+        pack();
 
-        //validate();
+        validate();
 
 
+
+    }
+
+    /*
+    funcion que asigna un imageIcon a un buttom según un numero entero del 0 al 5
+     */
+
+    public void asignarCara(int numeroDeLaCara){
+
+        ImageIcon cara_42 = new ImageIcon(getClass().getResource("/Images/5-cara42.png"));
+        ImageIcon meeplet = new ImageIcon(getClass().getResource("/Images/4-caraMepplet.png"));
+        ImageIcon superHeroe = new ImageIcon(getClass().getResource("/Images/3-caraSuperHeroe.png"));
+        ImageIcon dragon = new ImageIcon(getClass().getResource("/Images/2-caraDragon.png"));
+        ImageIcon cohete = new ImageIcon(getClass().getResource("/Images/1-caraCohete.png"));
+        ImageIcon corazon = new ImageIcon(getClass().getResource("/Images/0-caraCorazon.png"));
+        ImageIcon preguntaCara = new ImageIcon(getClass().getResource("/Images/99-caraPregunta.png"));
+
+
+
+        switch (numeroDeLaCara){
+            case 0:
+                jbdadp1.setIcon(corazon);
+                break;
+
+            case 1:
+                jbdadp1.setIcon(cohete);
+                break;
+
+            case 2:
+                jbdadp1.setIcon(dragon);
+                break;
+
+            case 3:
+                jbdadp1.setIcon(superHeroe);
+                break;
+
+            case 4:
+                jbdadp1.setIcon(meeplet);
+                break;
+
+            case 5:
+                jbdadp1.setIcon(cara_42);
+                break;
+
+            default:
+                jbdadp1.setIcon(preguntaCara);
+
+        }
 
     }
 
@@ -109,11 +156,11 @@ public class Frame_Gira_El_Dado extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
 
-            if (e.getSource()==jbdadp1){
-                this.cara42 = new ImageIcon(getClass().getResource("/Images/caraCorazon.png"));
-                jbdadp1.setIcon(cara42);
-                repaint();
-            }
+//            if (e.getSource()==jbdadp1){
+//                this.cara42 = new ImageIcon(getClass().getResource("/Images/0-caraCorazon.png"));
+//                jbdadp1.setIcon(cara42);
+//                repaint();
+//            }
 
 
         }
