@@ -1,21 +1,61 @@
 package Recursos;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class BasicasGeek {
+
+    private int valorSimple;
+    private int[] valorListado;
+
+    public void setValorListado(int[] valorListado) {
+        this.valorListado = valorListado;
+    }
+
+    public void setValorSimple(int valorSimple) {
+        this.valorSimple = valorSimple;
+    }
+
+    public int getValorSimple() {
+        return valorSimple;
+    }
+
+    public int[] getValorListado() {
+        return valorListado;
+    }
+
+    public BasicasGeek(int valor){// constructor con parametro entero.
+        valorSimple = valor;
+
+    }
+    public BasicasGeek(){// constructor vacio
+
+    }
+
+
+    /*
+    funcion que genera el entero representativo de la cara del dado
+    en un lanzamiento de un solo dado.
+     */
+
+    public int lanzarUnDado(){
+        Random rand = new Random();
+        int carasDados = 6;
+        int caraInicial = rand.nextInt(carasDados);
+        System.out.println(" La cara inicial es "+ caraInicial );
+        return caraInicial;
+    }
 
     /*
     funcion que genera un arreglo de enteros con 7 campos.
     cada campo represnta un dado. el valor asignado a cada campo
     representa la cara del dado, configurandose asi ek inicio del juego.
     los valores van del cero al 5 representando las 6 caras del dado
-    
+
      */
 
-    private static int[] lanzaSieteDados(){
+    public int[] lanzaSieteDados(){
         Random rand = new Random();
-        int carasDados = 6; 
+        int carasDados = 6;
         int[] juegoInicial = new int[7];
         for (int i =0; i< juegoInicial.length; i++){
             juegoInicial[i]=rand.nextInt(carasDados);
@@ -24,18 +64,8 @@ public class BasicasGeek {
         return juegoInicial;
     }
 
-//    private static ArrayList <int> juegoInicial(){
-//
-//        Random rand = new Random();
-//        int carasDados = 6;
-//        ArrayList <int> juego = new ArrayList<int>(carasDados);
-//        for (int i = 0; i<juego.size(); i++;){
-//            juego[i]=
-//        }
-//
-//
-//
-//    }
+
+
 
     /*
 
@@ -43,7 +73,7 @@ public class BasicasGeek {
     en un lanzamiento de un solo dado.
      */
 
-    private static int lanzaUnDado(int caraInicial){
+    public int cambiaCara(int caraInicial){
         Random rand = new Random();
         int carasDados = 6;
         int nuevaCara = rand.nextInt(carasDados);
@@ -58,7 +88,7 @@ public class BasicasGeek {
     Rango de los valores [ 0 -> 5 ]
      */
 
-    private  static int voltearCaraDeDado(int caraActual){
+  public int voltearCaraDeDado(int caraActual){
         int caraOpuesta;
 
         switch (caraActual){
@@ -107,22 +137,27 @@ public class BasicasGeek {
         /*
         pruebas de funciones
          */
+        BasicasGeek probador = new BasicasGeek();
 
-        lanzaSieteDados();
-        lanzaUnDado(1);
-        lanzaUnDado(1);
-        lanzaUnDado(1);
-        lanzaUnDado(3);
-        lanzaUnDado(6);
+        probador.lanzarUnDado();
+        probador.lanzarUnDado();
+        probador.lanzarUnDado();
 
-        voltearCaraDeDado(0);
-        voltearCaraDeDado(1);
-        voltearCaraDeDado(2);
-        voltearCaraDeDado(3);
-        voltearCaraDeDado(4);
-        voltearCaraDeDado(5);
-        voltearCaraDeDado(5);
-        voltearCaraDeDado(3);
+        probador.lanzaSieteDados();
+        probador.cambiaCara(1);
+        probador.cambiaCara(1);
+        probador.cambiaCara(1);
+        probador.cambiaCara(3);
+        probador.cambiaCara(6);
+
+        probador.voltearCaraDeDado(0);
+        probador.voltearCaraDeDado(1);
+        probador.voltearCaraDeDado(2);
+        probador.voltearCaraDeDado(3);
+        probador.voltearCaraDeDado(4);
+        probador.voltearCaraDeDado(5);
+        probador.voltearCaraDeDado(5);
+        probador.voltearCaraDeDado(3);
 
 
     }
